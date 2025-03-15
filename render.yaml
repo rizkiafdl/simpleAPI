@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: fastapi-app
+    env: python
+    plan: free  # Use "starter" or "pro" for higher limits
+    buildCommand: |
+      pip install -r requirements.txt
+    startCommand: |
+      python run.py
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: MONGO_URI
+        sync: false  # Set in Render's environment variables
